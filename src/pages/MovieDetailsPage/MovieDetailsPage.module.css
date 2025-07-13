@@ -61,17 +61,17 @@
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: box-shadow 0.3s ease;
-  
+
   &:hover {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
   }
-  
+
   @media (max-width: 768px) {
     position: static;
     width: 250px;
     height: 375px;
   }
-  
+
   @media (max-width: 480px) {
     width: 200px;
     height: 300px;

@@ -19,7 +19,9 @@ const MoviesPage = () => {
       .then(data => {
         setMovies(data.results);
         if (data.results.length === 0) {
-          toast.info(`No movies found for "${query}". Try a different search term.`);
+          toast.info(
+            `No movies found for "${query}". Try a different search term.`
+          );
         }
       })
       .catch(() => {
@@ -43,14 +45,16 @@ const MoviesPage = () => {
   return (
     <main className={css.page}>
       <form onSubmit={handleSubmit} className={css.searchForm}>
-        <input 
-          type="text" 
-          name="query" 
-          defaultValue={query} 
+        <input
+          type="text"
+          name="query"
+          defaultValue={query}
           className={css.searchInput}
           placeholder="Search for movies..."
         />
-        <button type="submit" className={css.searchButton}>Search</button>
+        <button type="submit" className={css.searchButton}>
+          Search
+        </button>
       </form>
       {loading && <Loader />}
       {movies.length > 0 && <MovieList movies={movies} />}

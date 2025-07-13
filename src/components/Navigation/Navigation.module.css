@@ -20,13 +20,17 @@
 
   &:hover {
     border-radius: 8px;
-    background-color: light-dark(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+    background-color: light-dark(
+      rgba(255, 255, 255, 0.05),
+      rgba(0, 0, 0, 0.05)
+    );
     transform: translateY(-1px);
   }
 }
 
 .navLink.active {
-  border-bottom: 2px solid light-dark(rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0.75));
+  border-bottom: 2px solid
+    light-dark(rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0.75));
 
   &:hover {
     background-color: transparent;

@@ -1,5 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
-import { useParams, Link, Outlet, useLocation, NavLink } from 'react-router-dom';
+import {
+  useParams,
+  Link,
+  Outlet,
+  useLocation,
+  NavLink,
+} from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { getMovieDetails } from '@/services/api';
 import { getPosterUrl } from '@/utils/imageUtils';
@@ -27,22 +33,22 @@ const MovieDetailsPage = () => {
   if (loading) return <Loader />;
   if (!movie) return null;
 
-  const { 
-    title, 
-    overview, 
-    genres, 
-    poster_path, 
-    release_date, 
-    runtime, 
-    vote_average, 
-    vote_count, 
-    tagline, 
+  const {
+    title,
+    overview,
+    genres,
+    poster_path,
+    release_date,
+    runtime,
+    vote_average,
+    vote_count,
+    tagline,
     status,
     budget,
     revenue,
     production_countries,
     spoken_languages,
-    homepage
+    homepage,
   } = movie;
 
   return (
@@ -50,7 +56,7 @@ const MovieDetailsPage = () => {
       <Link to={backLinkRef.current} className={css.backLink}>
         ← Go back
       </Link>
-      
+
       <div className={css.movieDetails}>
         <div className={css.movieHeader}>
           <img
@@ -62,18 +68,22 @@ const MovieDetailsPage = () => {
             <h1 className={css.movieTitle}>{title}</h1>
             {tagline && <p className={css.movieTagline}>"{tagline}"</p>}
             <p className={css.movieOverview}>{overview}</p>
-            
+
             <div className={css.movieStats}>
               {vote_average > 0 && (
                 <div className={css.statItem}>
                   <span className={css.statLabel}>Rating:</span>
-                  <span className={css.statValue}>⭐ {vote_average.toFixed(1)}/10 ({vote_count} votes)</span>
+                  <span className={css.statValue}>
+                    ⭐ {vote_average.toFixed(1)}/10 ({vote_count} votes)
+                  </span>
                 </div>
               )}
               {release_date && (
                 <div className={css.statItem}>
                   <span className={css.statLabel}>Release Date:</span>
-                  <span className={css.statValue}>{new Date(release_date).toLocaleDateString()}</span>
+                  <span className={css.statValue}>
+                    {new Date(release_date).toLocaleDateString()}
+                  </span>
                 </div>
               )}
               {runtime && (
@@ -91,20 +101,26 @@ const MovieDetailsPage = () => {
               {budget > 0 && (
                 <div className={css.statItem}>
                   <span className={css.statLabel}>Budget:</span>
-                  <span className={css.statValue}>${budget.toLocaleString()}</span>
+                  <span className={css.statValue}>
+                    ${budget.toLocaleString()}
+                  </span>
                 </div>
               )}
               {revenue > 0 && (
                 <div className={css.statItem}>
                   <span className={css.statLabel}>Revenue:</span>
-                  <span className={css.statValue}>${revenue.toLocaleString()}</span>
+                  <span className={css.statValue}>
+                    ${revenue.toLocaleString()}
+                  </span>
                 </div>
               )}
               {production_countries && production_countries.length > 0 && (
                 <div className={css.statItem}>
                   <span className={css.statLabel}>Country:</span>
                   <span className={css.statValue}>
-                    {production_countries.map(country => country.name).join(', ')}
+                    {production_countries
+                      .map(country => country.name)
+                      .join(', ')}
                   </span>
                 </div>
               )}
@@ -119,7 +135,12 @@ const MovieDetailsPage = () => {
               {homepage && (
                 <div className={css.statItem}>
                   <span className={css.statLabel}>Website:</span>
-                  <a href={homepage} target="_blank" rel="noopener noreferrer" className={css.websiteLink}>
+                  <a
+                    href={homepage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={css.websiteLink}
+                  >
                     Official Site
                   </a>
                 </div>
@@ -131,7 +152,9 @@ const MovieDetailsPage = () => {
                 <span className={css.genresLabel}>Genres:</span>
                 <ul className={css.genresList}>
                   {genres.map(genre => (
-                    <li key={genre.id} className={css.genreItem}>{genre.name}</li>
+                    <li key={genre.id} className={css.genreItem}>
+                      {genre.name}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -144,10 +167,14 @@ const MovieDetailsPage = () => {
         <h3 className={css.additionalTitle}>Additional Information</h3>
         <ul className={css.navList}>
           <li className={css.navItem}>
-            <NavLink to="cast" className={css.navLink}>Cast</NavLink>
+            <NavLink to="cast" className={css.navLink}>
+              Cast
+            </NavLink>
           </li>
           <li className={css.navItem}>
-            <NavLink to="reviews" className={css.navLink}>Reviews</NavLink>
+            <NavLink to="reviews" className={css.navLink}>
+              Reviews
+            </NavLink>
           </li>
         </ul>
       </div>

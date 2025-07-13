@@ -17,6 +17,10 @@ export const getProfileUrl = (path, size = 'w200') => {
   return getImageUrl(path, size);
 };
 
-export const getPlaceholderImage = (width = 300, height = 450, text = 'No Image') => {
+export const getPlaceholderImage = (
+  width = 300,
+  height = 450,
+  text = 'No Image'
+) => {
   return `https://placehold.co/${width}x${height}/333/fff?text=${encodeURIComponent(text)}`;
 };

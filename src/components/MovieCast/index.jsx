@@ -22,14 +22,19 @@ const MovieCast = () => {
   }, [movieId]);
 
   if (loading) return <Loader />;
-  if (!cast.length) return <p className={css.message}>Cast information is not available.</p>;
+  if (!cast.length)
+    return <p className={css.message}>Cast information is not available.</p>;
 
   return (
     <ul className={css.castList}>
       {cast.map(({ cast_id, name, character, profile_path }) => (
         <li key={cast_id} className={css.castItem}>
           <img
-            src={profile_path ? getProfileUrl(profile_path) : getPlaceholderImage(200, 300, 'No Photo')}
+            src={
+              profile_path
+                ? getProfileUrl(profile_path)
+                : getPlaceholderImage(200, 300, 'No Photo')
+            }
             alt={name}
             className={css.castPhoto}
           />

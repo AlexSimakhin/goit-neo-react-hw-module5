@@ -21,7 +21,8 @@ const MovieReviews = () => {
   }, [movieId]);
 
   if (loading) return <Loader />;
-  if (!reviews.length) return <p className={css.message}>No reviews available.</p>;
+  if (!reviews.length)
+    return <p className={css.message}>No reviews available.</p>;
 
   return (
     <ul className={css.reviewsList}>

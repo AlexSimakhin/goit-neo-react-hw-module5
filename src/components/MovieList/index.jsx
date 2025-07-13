@@ -9,13 +9,17 @@ const MovieList = ({ movies }) => {
     <ul className={css.movieList}>
       {movies.map(({ id, title, backdrop_path }) => (
         <li key={id} className={css.movieItem}>
-          <Link 
-            to={`/movies/${id}`} 
+          <Link
+            to={`/movies/${id}`}
             state={{ from: location }}
             className={css.movieLink}
           >
             <img
-              src={backdrop_path ? getBackdropUrl(backdrop_path, 'w500') : getPlaceholderImage(500, 280, 'No Image')}
+              src={
+                backdrop_path
+                  ? getBackdropUrl(backdrop_path, 'w500')
+                  : getPlaceholderImage(500, 280, 'No Image')
+              }
               alt={title}
               className={css.movieImage}
             />
