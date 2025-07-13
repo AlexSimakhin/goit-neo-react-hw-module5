@@ -1,0 +1,41 @@
+.nav {
+  width: fit-content;
+  margin: 0 auto 2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  background: light-dark(rgba(0, 0, 0, 0.9), rgba(255, 255, 255, 0.9));
+  box-shadow: 0 4px 20px light-dark(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.6));
+}
+
+.navLink {
+  display: inline-block;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+  font-weight: 600;
+  text-decoration: none;
+  color: light-dark(white, #333);
+  transition: all 0.3s ease;
+
+  &:hover {
+    border-radius: 8px;
+    background-color: light-dark(rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+    transform: translateY(-1px);
+  }
+}
+
+.navLink.active {
+  border-bottom: 2px solid light-dark(rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0.75));
+
+  &:hover {
+    background-color: transparent;
+    transform: translateY(0px);
+  }
+}
+
+.separator {
+  margin: 0 0.5rem;
+  font-size: 1.2rem;
+  color: light-dark(rgba(255, 255, 255, 0.7), rgba(0, 0, 0, 0.7));
+}

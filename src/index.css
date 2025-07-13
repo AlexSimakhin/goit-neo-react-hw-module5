@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Modern color system with CSS custom properties */
+  --primary-hue: 240;
+  --primary-sat: 100%;
+  --primary-light: 62%;
+  --primary-color: oklch(var(--primary-light) var(--primary-sat) var(--primary-hue));
+  
+  --surface-light: oklch(98% 0% 0);
+  --surface-dark: oklch(15% 0% 0);
+  --text-light: oklch(25% 0% 0);
+  --text-dark: oklch(95% 0% 0);
+  
+  /* Dynamic color scheme */
+  --surface: light-dark(var(--surface-light), var(--surface-dark));
+  --text: light-dark(var(--text-light), var(--text-dark));
+  --text-secondary: light-dark(oklch(45% 0% 0), oklch(75% 0% 0));
+
+  /* Typography system */
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-optical-sizing: auto;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  line-height: 1.6;
+  font-weight: 400;
+
+  /* Enhanced rendering */
+  color-scheme: light dark;
+  color: var(--text);
+  background-color: var(--surface);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+  
+  /* Focus ring */
+  --focus-ring: 0 0 0 2px var(--primary-color);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, 
+    light-dark(rgba(248, 250, 252, 0.9), rgba(36, 36, 36, 0.9)) 0%, 
+    light-dark(rgba(36, 36, 36, 0.1), rgba(248, 250, 252, 0.1)) 100%);
+  background-attachment: fixed;
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+}
+
+button {
+  border: none;
+  border-radius: 8px;
+  font: inherit;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--focus-ring);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  
+  &:focus-visible {
+    outline: none;
+    border-radius: 4px;
+    box-shadow: var(--focus-ring);
+  }
+}
+
+/* Modern scrollbar with container queries */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: light-dark(oklch(70% 0% 0), oklch(40% 0% 0)) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: light-dark(
+    linear-gradient(135deg, oklch(70% 0% 0), oklch(60% 0% 0)),
+    linear-gradient(135deg, oklch(40% 0% 0), oklch(50% 0% 0))
+  );
+  border-radius: 4px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  
+  &:hover {
+    background: light-dark(
+      linear-gradient(135deg, oklch(60% 0% 0), oklch(50% 0% 0)),
+      linear-gradient(135deg, oklch(50% 0% 0), oklch(60% 0% 0))
+    );
+    background-clip: content-box;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --surface: light-dark(white, black);
+    --text: light-dark(black, white);
+  }
+}

@@ -1,0 +1,44 @@
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.reviewItem {
+  padding: 1.5rem;
+  border-left: 4px solid #667eea;
+  border-radius: 12px;
+  background: light-dark(white, #333);
+  box-shadow: 0 4px 15px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4));
+}
+
+.reviewAuthor {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid light-dark(#e2e8f0, #555);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: light-dark(#333, #fff);
+}
+
+.reviewContent {
+  max-height: 200px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: light-dark(#555, #ccc);
+  overflow-y: auto;
+}
+
+.message {
+  margin: 1rem 0;
+  padding: 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+  color: light-dark(#666, #ccc);
+  background: light-dark(#f8f9fa, #444);
+}

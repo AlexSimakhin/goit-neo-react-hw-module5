@@ -1,0 +1,239 @@
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.backLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid light-dark(#e2e8f0, #404040);
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  color: light-dark(#667eea, #8b9aff);
+  background: light-dark(#f8f9fa, #2a2a2a);
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: white;
+    background: #667eea;
+    transform: translateX(-3px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+  }
+}
+
+.movieDetails {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background: light-dark(white, #1a1a1a);
+  box-shadow: 0 4px 20px light-dark(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+}
+
+.movieHeader {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.moviePoster {
+  position: sticky;
+  top: 2rem;
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  @media (max-width: 768px) {
+    position: static;
+    width: 250px;
+    height: 375px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 200px;
+    height: 300px;
+  }
+}
+
+.movieInfo {
+  flex: 1;
+}
+
+.movieTitle {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: light-dark(#333, #ffffff);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.movieTagline {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: light-dark(#666, #aaaaaa);
+  text-align: center;
+}
+
+.movieOverview {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: light-dark(#555, #cccccc);
+}
+
+.genresList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.genreItem {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.additionalInfo {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  border-radius: 12px;
+  background: light-dark(#f8f9fa, #252525);
+}
+
+.additionalTitle {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: light-dark(#333, #ffffff);
+}
+
+.navList {
+  display: flex;
+  gap: 1rem;
+  margin: 0 0 2rem 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.navItem {
+  flex: 1;
+}
+
+.navLink {
+  display: block;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid light-dark(#e2e8f0, #404040);
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  color: light-dark(#667eea, #8b9aff);
+  background: light-dark(white, #2a2a2a);
+  transition: all 0.3s ease;
+
+  &:hover,
+  &.active {
+    color: white;
+    background: #667eea;
+    border-color: #667eea;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+  }
+}
+
+.movieStats {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: light-dark(#f8f9fa, #2a2a2a);
+}
+
+.statItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid light-dark(#e2e8f0, #404040);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.statLabel {
+  font-weight: 600;
+  color: light-dark(#555, #cccccc);
+}
+
+.statValue {
+  font-weight: 500;
+  color: light-dark(#333, #ffffff);
+}
+
+.websiteLink {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.genresSection {
+  margin-top: 1.5rem;
+}
+
+.genresLabel {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: light-dark(#555, #cccccc);
+}
