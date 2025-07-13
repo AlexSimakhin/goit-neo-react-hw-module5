@@ -10,21 +10,18 @@ const MovieCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
     getMovieCredits(movieId)
       .then(data => setCast(data.cast))
-      .catch(error => {
-        setError(error);
+      .catch(() => {
         toast.error('Failed to load cast information.');
       })
       .finally(() => setLoading(false));
   }, [movieId]);
 
   if (loading) return <Loader />;
-  if (error) return null;
   if (!cast.length) return <p className={css.message}>Cast information is not available.</p>;
 
   return (

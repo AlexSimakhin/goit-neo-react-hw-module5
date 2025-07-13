@@ -9,21 +9,18 @@ const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     setLoading(true);
     getMovieReviews(movieId)
       .then(data => setReviews(data.results))
-      .catch(error => {
-        setError(error);
+      .catch(() => {
         toast.error('Failed to load reviews.');
       })
       .finally(() => setLoading(false));
   }, [movieId]);
 
   if (loading) return <Loader />;
-  if (error) return null;
   if (!reviews.length) return <p className={css.message}>No reviews available.</p>;
 
   return (

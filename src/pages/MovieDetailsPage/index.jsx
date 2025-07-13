@@ -12,22 +12,19 @@ const MovieDetailsPage = () => {
   const backLinkRef = useRef(location.state?.from ?? '/movies');
 
   const [movie, setMovie] = useState(null);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     getMovieDetails(movieId)
       .then(setMovie)
-      .catch(error => {
-        setError(error);
+      .catch(() => {
         toast.error('Failed to load movie details. Please try again.');
       })
       .finally(() => setLoading(false));
   }, [movieId]);
 
   if (loading) return <Loader />;
-  if (error) return null;
   if (!movie) return null;
 
   const { 
